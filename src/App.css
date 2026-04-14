@@ -323,14 +323,6 @@
 /* SERVICES PAGE */
 
 /* HERO */
-.services-hero {
-  max-width: 98%;
-  margin: auto;
-  padding: 40px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
 
 .services-left h1 {
   font-size: 48px;
@@ -394,8 +386,11 @@
 
 /* SECTION */
 .top-services-section {
-  background: #f4f0e9;
   padding: 40px;
+    background-image: url("/background.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
 
 .top-services-section h2 {
