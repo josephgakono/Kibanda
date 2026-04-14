@@ -1,7 +1,7 @@
 .navbar {
   width: 90%;
   background: #f5f5f5;
-  padding: 5px 10px;
+  padding: 15px 10px;
   position: sticky;
   top: 0;
   z-index: 100;
@@ -64,14 +64,107 @@
 .cta-btn:hover {
   background: #43a047;
 }
+.landing {
+  font-family: "Poppins", sans-serif;
+  background: #f7f7f7;
+}
+
+/* HERO */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 60px 80px;
+  background: #f3f3f3;
+}
+
+.hero-text {
+  max-width: 500px;
+}
+
+.hero-text h1 {
+  font-size: 40px;
+  font-weight: 700;
+  color: #1e1e1e;
+}
+
+.hero-text h1 span {
+  color: #4CAF50;
+}
+
+.hero-text p {
+  margin: 20px 0;
+  color: #555;
+  line-height: 1.6;
+}
+
+.hero-btn {
+  background: #4CAF50;
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.hero-btn:hover {
+  background: #43a047;
+}
+
+/* IMAGE */
+.hero-image img {
+  width: 400px;
+}
+
+/* FEATURES */
+.features {
+  text-align: center;
+  padding: 60px 40px;
+  background: #ffffff;
+}
+
+.features h2 {
+  font-size: 28px;
+  margin-bottom: 40px;
+  color: #1e1e1e;
+}
+
+/* CARDS */
+.cards {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.card {
+  background: #f9f9f9;
+  padding: 20px;
+  border-radius: 15px;
+  width: 220px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card h3 {
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.card p {
+  font-size: 14px;
+  color: #666;
+}
 
 /* Footer */
 .footer{
     background-color: lightgray;
-    width: 100%;
-    bottom: 0;
-    padding: 10px;
-    
+    width: 100%; 
 }
 .footer_text{
     text-align: center;
