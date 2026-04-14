@@ -594,20 +594,125 @@
 
 /* Footer */
 .footer {
-  background-color: rgb(239, 237, 237);
-  width: 100%;
+    background: #1b1b1b;
+  color: #ffffff;
+  padding: 70px 80px 30px;
+  background: linear-gradient(
+    to bottom,
+    #2b2b2b 0%,
+    #181818 18%,
+    #111111 100%
+  );
 }
 
-.footer_text {
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 60px;
+  flex-wrap: wrap;
+  padding-bottom: 40px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.footer-brand {
+  max-width: 320px;
+}
+
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.footer-logo img {
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+}
+
+.footer-logo h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0;
+  color: #ffffff;
+}
+
+.footer-brand p {
+  color: #b8b8b8;
+  line-height: 1.8;
+  margin-bottom: 24px;
+  font-size: 0.95rem;
+}
+
+.footer-socials {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.footer-socials a {
+  text-decoration: none;
+  color: #ffffff;
+  background: rgba(255,255,255,0.08);
+  padding: 10px 16px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  transition: 0.3s ease;
+}
+
+.footer-socials a:hover {
+  background: #53b43b;
+  transform: translateY(-2px);
+}
+
+.footer-links {
+  min-width: 160px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.footer-links h3 {
+  color: #ffffff;
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+}
+
+.footer-links a {
+  color: #b8b8b8;
+  text-decoration: none;
+  transition: 0.3s ease;
+  font-size: 0.95rem;
+}
+
+.footer-links a:hover {
+  color: #53b43b;
+  padding-left: 4px;
+}
+
+.footer-bottom {
   text-align: center;
+  padding-top: 25px;
 }
 
-.f_logo img {
-  width: 70px;
-  height: 70px;
+.footer-bottom p {
+  color: #8d8d8d;
+  font-size: 0.9rem;
+  margin: 0;
 }
 
-.logo_text {
-  font-size: 20px;
-  color: #43a047;
+@media (max-width: 900px) {
+  .footer {
+    padding: 60px 30px 25px;
+  }
+
+  .footer-top {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .footer-brand {
+    max-width: 100%;
+  }
 }
