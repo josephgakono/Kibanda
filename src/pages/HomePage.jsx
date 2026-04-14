@@ -34,21 +34,25 @@ function HomePage() {
         <div className="cards">
 
           <div className="card">
+            <img src="/image 1.png" alt="" />
             <h3>Buy & Sell Items</h3>
             <p>Trade books, electronics, clothes, and more with other students.</p>
           </div>
 
           <div className="card">
+            <img src="find_hostels.png" alt="" />
             <h3>Find Hostels</h3>
             <p>Search for off-campus accommodations and find the perfect place.</p>
           </div>
 
           <div className="card">
+            <img src="/tutor.png" alt="" />
             <h3>Hire a Tutor</h3>
             <p>Connect with qualified tutors for help with your studies.</p>
           </div>
 
           <div className="card">
+            <img src="/services.png" alt="" />
             <h3>Offer Services</h3>
             <p>Advertise your skills like repair, design, or hair braiding.</p>
           </div>
