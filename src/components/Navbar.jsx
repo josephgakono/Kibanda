@@ -13,7 +13,7 @@ function Navbar() {
         </div>
 
         <div className="nav-links">
-          <Link to="/Home">Home</Link>
+          <Link to="/">Home</Link>
           <Link to="/services">Services</Link>
           <Link to="/listings">Listings</Link>
           <Link to="/help">Help</Link>
@@ -21,7 +21,9 @@ function Navbar() {
 
         </div>
 
+         <Link to="/auth">
         <button className="cta-btn">Get Started</button>
+        </Link>
 
       </div>
     </nav>

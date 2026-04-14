@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function HomePage() {
   return (
@@ -16,8 +17,9 @@ function HomePage() {
               Buy and sell items, find hostels, connect with tutors, and
               advertise your services—all on a single, student-focused platform.
             </p>
-
+            <Link to="/auth">
             <button className="hero-btn">Get Started Free</button>
+            </Link>
           </div>
 
           <div className="hero-animation">

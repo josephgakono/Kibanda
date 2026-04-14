@@ -5,17 +5,21 @@ import Navbar from "./components/Navbar";
 import HomePage from "./pages/HomePage";
 import Listings from "./pages/Listings";
 import Services from "./pages/Services";
+import Auth from "./components/Auth";
 
 function App() {
-  return <>
-  <Navbar/>
-  <Routes>
-    <Route path="/Home" element={<HomePage/>}/>
-    <Route path="/services" element={<Services/>}/>
-    <Route path="/listings" element={<Listings/>}/>
-  </Routes>
-  <Footer/>
-  </>;
+  return (
+    <>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/services" element={<Services />} />
+        <Route path="/listings" element={<Listings />} />
+        <Route path="/auth" element={<Auth />} />
+      </Routes>
+      <Footer />
+    </>
+  );
 }
 
 export default App;
