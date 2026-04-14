@@ -1,12 +1,15 @@
+*{
+    margin: 0;
+}
 .navbar {
   width: 90%;
-  background: #f5f5f5;
   padding: 15px 10px;
   position: sticky;
   top: 0;
   z-index: 100;
-  border-radius: 20px;
-  margin: auto;
+  margin: 14px auto 0 auto;
+ background: #f3f1eb;
+  border-radius: 26px;
 
 }
 
@@ -68,7 +71,7 @@
   font-family: "Poppins", sans-serif;
   background: #f7f7f7;
 }
-
+/* HOMEPAGE */
 /* HERO */
 .hero {
   display: flex;
@@ -121,7 +124,10 @@
 .features {
   text-align: center;
   padding: 60px 40px;
-  background: #ffffff;
+  background-image: url("/background.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
 
 .features h2 {
@@ -160,10 +166,128 @@
   font-size: 14px;
   color: #666;
 }
+/* SERVICES PAGE */
 
+/* HERO */
+.services-hero {
+  max-width: 1200px;
+  margin: auto;
+  padding: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.services-left h1 {
+  font-size: 48px;
+  margin-bottom: 10px;
+}
+
+.services-left p {
+  color: #666;
+  margin-bottom: 25px;
+}
+
+/* SEARCH */
+.search-bar {
+  display: flex;
+  align-items: center;
+  border: 2px solid #eee;
+  border-radius: 30px;
+  padding: 10px;
+  background: white;
+  max-width: 500px;
+}
+
+.search-bar input {
+  border: none;
+  outline: none;
+  flex: 1;
+  font-size: 16px;
+}
+
+.search-bar button {
+  background: #4caf50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 20px;
+}
+
+/* TABS */
+.category-tabs {
+  margin-top: 20px;
+  display: flex;
+  gap: 10px;
+}
+
+.tab {
+  padding: 10px 20px;
+  border-radius: 20px;
+  border: none;
+  background: #eee;
+}
+
+.tab.active {
+  background: #4caf50;
+  color: white;
+}
+
+/* IMAGE */
+.services-right img {
+  width: 400px;
+}
+
+/* SECTION */
+.top-services-section {
+  background: #f4f0e9;
+  padding: 40px;
+}
+
+.top-services-section h2 {
+  max-width: 1200px;
+  margin: auto;
+  margin-bottom: 20px;
+}
+
+/* GRID */
+.services-grid {
+  max-width: 1200px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+/* CARD */
+.service-card {
+  background: white;
+  border-radius: 15px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.service-top {
+  display: flex;
+  gap: 15px;
+}
+
+.service-top img {
+  width: 60px;
+}
+
+.explore-btn {
+  align-self: flex-end;
+  background: #eee;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 15px;
+}
 /* Footer */
 .footer{
-    background-color: lightgray;
+    background-color: rgb(239, 237, 237);
     width: 100%; 
 }
 .footer_text{
