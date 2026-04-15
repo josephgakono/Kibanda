@@ -52,6 +52,10 @@ function Navbar() {
                   <button className="logout-btn" onClick={handleLogout}>
                     Logout
                   </button>
+
+                  <Link to="/add-service" className="navbar-btn">
+                    Add Service
+                  </Link>
                 </div>
               </>
             ) : (

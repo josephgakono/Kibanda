@@ -6,6 +6,7 @@ import HomePage from "./pages/HomePage";
 import Listings from "./pages/Listings";
 import Services from "./pages/Services";
 import Auth from "./contexts/Auth";
+import AddService from "./pages/AddService";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/services" element={<Services />} />
         <Route path="/listings" element={<Listings />} />
         <Route path="/auth" element={<Auth/>} />
+        <Route path="/add-service" element={<AddService/>} />
       </Routes>
       <Footer />
     </>
