@@ -5,7 +5,7 @@ import Navbar from "./components/Navbar";
 import HomePage from "./pages/HomePage";
 import Listings from "./pages/Listings";
 import Services from "./pages/Services";
-import Auth from "./components/Auth";
+import Auth from "./contexts/Auth";
 
 function App() {
   return (
@@ -15,7 +15,7 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/services" element={<Services />} />
         <Route path="/listings" element={<Listings />} />
-        <Route path="/auth" element={<Auth />} />
+        <Route path="/auth" element={<Auth/>} />
       </Routes>
       <Footer />
     </>
