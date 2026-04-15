@@ -43,10 +43,10 @@ function Navbar() {
             {user ? (
               <>
                 <div className="navbar-user">
-                  <span>
+                  <span className="welcome-user">
                     {user.displayName
                       ? `Aloha, ${user.displayName.split(" ")[0]}`
-                      : user.email}
+                      : `Aloha, ${user.email.split("@")[0]}`}
                   </span>
 
                   <button className="logout-btn" onClick={handleLogout}>

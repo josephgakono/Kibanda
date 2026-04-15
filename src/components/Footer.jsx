@@ -51,7 +51,7 @@ function Footer() {
       </div>
 
       <div className="footer-bottom">
-        <p>© 2026 Kibanda. Built for students, because campus chaos needed a platform.</p>
+        <p>© 2026 Kibanda. Everything Campus Needs, In One Kibanda 🛖.</p>
       </div>
     </footer>
     </>

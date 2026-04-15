@@ -18,6 +18,7 @@ function App() {
         <Route path="/listings" element={<Listings />} />
         <Route path="/auth" element={<Auth/>} />
         <Route path="/add-service" element={<AddService/>} />
+        <Route path="/listings" element={<Listings/>} />
       </Routes>
       <Footer />
     </>

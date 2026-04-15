@@ -3,9 +3,11 @@ import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { auth } from "../firebase/firebase";
 import { onAuthStateChanged } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
 
 function HomePage() {
   const [user, setUser] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
@@ -78,7 +80,7 @@ function HomePage() {
               <p>Connect with qualified tutors for help with your studies.</p>
             </div>
 
-            <div className="card">
+            <div className="card" onClick={() => navigate("/add-service")}>
               <img src="/services.png" alt="" />
               <h3>Offer Services</h3>
               <p>
