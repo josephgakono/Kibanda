@@ -1,7 +1,19 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { auth } from "../firebase/firebase";
+import { onAuthStateChanged } from "firebase/auth";
 
 function HomePage() {
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      setUser(currentUser);
+    });
+
+    return () => unsubscribe();
+  }, []);
   return (
     <>
       <div className="landing">
@@ -18,7 +30,11 @@ function HomePage() {
               advertise your services—all on a single, student-focused platform.
             </p>
             <Link to="/auth">
-            <button className="hero-btn">Get Started Free</button>
+              <button className="hero-btn">
+                {user
+                  ? `Welcome Back, ${user.displayName?.split(" ")[0]}`
+                  : "Get Started Free"}
+              </button>
             </Link>
           </div>
 
@@ -91,7 +107,6 @@ function HomePage() {
             </div>
           </section>
         </section>
-        
       </div>
     </>
   );
