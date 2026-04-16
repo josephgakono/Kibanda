@@ -205,4 +205,4 @@ Potential future features for Kibanda include:
 
 GitHub: [Repository](https://github.com/josephgakono/Kibanda)
 
-LiveDemo: [Live demo]()
+LiveDemo: [Live demo](https://kibanda-omega.vercel.app/)
