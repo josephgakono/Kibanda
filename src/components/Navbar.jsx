@@ -36,7 +36,7 @@ function Navbar() {
             <Link to="/">Home</Link>
             <Link to="/services">Services</Link>
             <Link to="/listings">Listings</Link>
-            <Link to="/help">Help</Link>
+            <Link to="/dashboard">Dashboard</Link>
           </div>
 
           <div className="navbar-auth">

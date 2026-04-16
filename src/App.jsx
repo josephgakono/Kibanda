@@ -7,6 +7,7 @@ import Listings from "./pages/Listings";
 import Services from "./pages/Services";
 import Auth from "./contexts/Auth";
 import AddService from "./pages/AddService";
+import Dashboard from "./pages/Dashboard";
 
 function App() {
   return (
@@ -16,9 +17,10 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/services" element={<Services />} />
         <Route path="/listings" element={<Listings />} />
-        <Route path="/auth" element={<Auth/>} />
-        <Route path="/add-service" element={<AddService/>} />
-        <Route path="/listings" element={<Listings/>} />
+        <Route path="/auth" element={<Auth />} />
+        <Route path="/add-service" element={<AddService />} />
+        <Route path="/listings" element={<Listings />} />
+        <Route path="/dashboard" element={<Dashboard />} />
       </Routes>
       <Footer />
     </>
