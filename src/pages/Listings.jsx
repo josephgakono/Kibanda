@@ -2,14 +2,20 @@ import React, { useEffect, useMemo, useState } from "react";
 import { auth, db } from "../firebase/firebase";
 import { Navigate } from "react-router-dom";
 import { collection, onSnapshot, orderBy, query } from "firebase/firestore";
+import { useSearchParams } from "react-router-dom";
 
 function Listings() {
   const user = auth.currentUser;
-
   const [services, setServices] = useState([]);
   const [loading, setLoading] = useState(true);
   const [errorMessage, setErrorMessage] = useState("");
-  const [activeCategory, setActiveCategory] = useState("All");
+  const [searchParams] = useSearchParams();
+  const categoryFromUrl = searchParams.get("category") || "All";
+  const [activeCategory, setActiveCategory] = useState(categoryFromUrl);
+
+  useEffect(() => {
+    setActiveCategory(categoryFromUrl);
+  }, [categoryFromUrl]);
 
   useEffect(() => {
     const servicesRef = collection(db, "services");
@@ -123,8 +129,7 @@ function Listings() {
         <div className="listings-state-card">
           <h3>No listings yet</h3>
           <p>
-            There are no services in this category yet. Time for humans to post
-            something useful.
+            There are no services in this category yet.
           </p>
         </div>
       )}
