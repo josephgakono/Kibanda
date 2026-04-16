@@ -76,10 +76,6 @@ function Listings() {
     return grouped;
   }, [filteredServices]);
 
-  if (!user) {
-    return <Navigate to="/auth" replace />;
-  }
-
   return (
     <section className="listings-page">
       <div className="listings-hero">
