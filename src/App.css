@@ -114,6 +114,10 @@
   color: #22c55e;
 }
 
+.nav-links a.active {
+  color: #22c55e;
+}
+
 .nav-links a::after {
   content: "";
   position: absolute;
@@ -126,6 +130,10 @@
 }
 
 .nav-links a:hover::after {
+  width: 100%;
+}
+
+.nav-links a.active::after {
   width: 100%;
 }
 

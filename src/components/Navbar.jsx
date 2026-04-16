@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { auth } from "../firebase/firebase";
 import { signOut } from "firebase/auth";
 import { onAuthStateChanged } from "firebase/auth";
@@ -33,10 +33,27 @@ function Navbar() {
           </div>
 
           <div className="nav-links">
-            <Link to="/">Home</Link>
-            <Link to="/services">Services</Link>
-            <Link to="/listings">Listings</Link>
-            <Link to="/dashboard">Dashboard</Link>
+            <NavLink to="/" end className={({ isActive }) => (isActive ? "active" : "")}>
+              Home
+            </NavLink>
+            <NavLink
+              to="/services"
+              className={({ isActive }) => (isActive ? "active" : "")}
+            >
+              Services
+            </NavLink>
+            <NavLink
+              to="/listings"
+              className={({ isActive }) => (isActive ? "active" : "")}
+            >
+              Listings
+            </NavLink>
+            <NavLink
+              to="/dashboard"
+              className={({ isActive }) => (isActive ? "active" : "")}
+            >
+              Dashboard
+            </NavLink>
           </div>
 
           <div className="navbar-auth">
