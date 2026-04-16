@@ -1484,6 +1484,27 @@
   background: #db4131;
 }
 
+.dashboard-edit-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.dashboard-edit-form input,
+.dashboard-edit-form textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  font-size: 0.95rem;
+  font-family: inherit;
+  outline: none;
+}
+
+.dashboard-edit-form textarea {
+  min-height: 100px;
+  resize: vertical;
+}
 @media (max-width: 1100px) {
   .dashboard-grid {
     grid-template-columns: repeat(2, 1fr);

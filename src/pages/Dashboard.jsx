@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { auth, db } from "../firebase/firebase";
-import { Navigate, Link, useNavigate } from "react-router-dom";
+import { Navigate, Link } from "react-router-dom";
 import {
   collection,
   deleteDoc,
@@ -9,16 +9,26 @@ import {
   orderBy,
   query,
   where,
+  updateDoc,
 } from "firebase/firestore";
 
 function Dashboard() {
   const user = auth.currentUser;
-  const navigate = useNavigate();
-
   const [myServices, setMyServices] = useState([]);
   const [loading, setLoading] = useState(true);
   const [errorMessage, setErrorMessage] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
+
+  const [editingId, setEditingId] = useState(null);
+  const [editForm, setEditForm] = useState({
+    serviceTitle: "",
+    category: "",
+    price: "",
+    location: "",
+    contact: "",
+    imageUrl: "",
+    description: "",
+  });
 
   useEffect(() => {
     if (!user) return;
@@ -70,10 +80,53 @@ function Dashboard() {
     }
   };
 
-  const handleEdit = (serviceId) => {
-    navigate(`/edit-service/${serviceId}`);
+  const handleEditClick = (service) => {
+    setEditingId(service.id);
+    setEditForm({
+      serviceTitle: service.serviceTitle || "",
+      category: service.category || "",
+      price: service.price || "",
+      location: service.location || "",
+      contact: service.contact || "",
+      imageUrl: service.imageUrl || "",
+      description: service.description || "",
+    });
   };
 
+  const handleEditChange = (e) => {
+    const { name, value } = e.target;
+    setEditForm((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  const handleSaveEdit = async (serviceId) => {
+    try {
+      setErrorMessage("");
+      setSuccessMessage("");
+
+      await updateDoc(doc(db, "services", serviceId), {
+        serviceTitle: editForm.serviceTitle.trim(),
+        category: editForm.category.trim(),
+        price: editForm.price.trim(),
+        location: editForm.location.trim(),
+        contact: editForm.contact.trim(),
+        imageUrl: editForm.imageUrl.trim(),
+        description: editForm.description.trim(),
+      });
+
+      setSuccessMessage("Service updated successfully.");
+      setEditingId(null);
+    } catch (error) {
+      console.log("Update error:", error);
+      setErrorMessage("Failed to update service.");
+    }
+  };
+
+  const handleCancelEdit = () => {
+    setEditingId(null);
+  };
   if (!user) {
     return <Navigate to="/auth" replace />;
   }
@@ -163,38 +216,116 @@ function Dashboard() {
               </div>
 
               <div className="dashboard-card-body">
-                <div className="dashboard-card-top">
-                  <span className="dashboard-category">{service.category}</span>
-                  <span className="dashboard-price">{service.price}</span>
-                </div>
+                {editingId === service.id ? (
+                  <div className="dashboard-edit-form">
+                    <input
+                      type="text"
+                      name="serviceTitle"
+                      value={editForm.serviceTitle}
+                      onChange={handleEditChange}
+                      placeholder="Service title"
+                    />
 
-                <h3>{service.serviceTitle}</h3>
-                <p className="dashboard-description">{service.description}</p>
+                    <input
+                      type="text"
+                      name="category"
+                      value={editForm.category}
+                      onChange={handleEditChange}
+                      placeholder="Category"
+                    />
 
-                <div className="dashboard-meta">
-                  <p>
-                    <strong>Location:</strong> {service.location}
-                  </p>
-                  <p>
-                    <strong>Contact:</strong> {service.contact}
-                  </p>
-                </div>
+                    <input
+                      type="text"
+                      name="price"
+                      value={editForm.price}
+                      onChange={handleEditChange}
+                      placeholder="Price"
+                    />
 
-                <div className="dashboard-actions">
-                  <button
-                    className="edit-btn"
-                    onClick={() => handleEdit(service.id)}
-                  >
-                    Edit
-                  </button>
+                    <input
+                      type="text"
+                      name="location"
+                      value={editForm.location}
+                      onChange={handleEditChange}
+                      placeholder="Location"
+                    />
 
-                  <button
-                    className="delete-btn"
-                    onClick={() => handleDelete(service.id)}
-                  >
-                    Delete
-                  </button>
-                </div>
+                    <input
+                      type="text"
+                      name="contact"
+                      value={editForm.contact}
+                      onChange={handleEditChange}
+                      placeholder="Contact"
+                    />
+
+                    <input
+                      type="text"
+                      name="imageUrl"
+                      value={editForm.imageUrl}
+                      onChange={handleEditChange}
+                      placeholder="Image URL"
+                    />
+
+                    <textarea
+                      name="description"
+                      value={editForm.description}
+                      onChange={handleEditChange}
+                      placeholder="Description"
+                    />
+
+                    <div className="dashboard-actions">
+                      <button
+                        className="edit-btn"
+                        onClick={() => handleSaveEdit(service.id)}
+                      >
+                        Save
+                      </button>
+
+                      <button className="delete-btn" onClick={handleCancelEdit}>
+                        Cancel
+                      </button>
+                    </div>
+                  </div>
+                ) : (
+                  <>
+                    <div className="dashboard-card-top">
+                      <span className="dashboard-category">
+                        {service.category}
+                      </span>
+                      <span className="dashboard-price">{service.price}</span>
+                    </div>
+
+                    <h3>{service.serviceTitle}</h3>
+                    <p className="dashboard-description">
+                      {service.description}
+                    </p>
+
+                    <div className="dashboard-meta">
+                      <p>
+                        <strong>Location:</strong> {service.location}
+                      </p>
+                      <p>
+                        <strong>Contact:</strong> {service.contact}
+                      </p>
+                    </div>
+
+                    <div className="dashboard-actions">
+                      <button
+                        className="edit-btn"
+                        onClick={() => handleEditClick(service)}
+                      >
+                        Edit
+                      </button>
+
+                      <button
+                        className="delete-btn"
+                        onClick={() => handleDelete(service.id)}
+                      >
+                        Delete
+                      </button>
+                    </div>
+                  </>
+                )}
               </div>
             </article>
           ))}
